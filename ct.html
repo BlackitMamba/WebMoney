@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: rgb(178, 255, 100);
+            display: flex;
+            justify-content: center;
+        }
+        .con{
+            margin-top: 20%;
+            background-color: white;
+            width: 50%;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 10px 5px 2.5px black;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .con:hover{
+            background-color: chartreuse;
+            box-shadow:10px 5px 2.5px rgb(25, 36, 14);
+            color: aliceblue;
+        }
+        .ops{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .op1{
+            background-color: rgb(255, 212, 104);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        .op1:hover{
+            background-color: rgb(221, 186, 90);
+            box-shadow: 5px 2.5px rgb(25, 36, 14);
+            color: rgb(10, 53, 90);
+        
+        }
+        .op2{
+            background-color: rgb(174, 225, 255);
+            margin-left: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition:all 0.5s ease;
+        }
+        .op2:hover{
+            background-color: rgb(136, 188, 211);
+            box-shadow: 5px 2.5px rgb(25, 36, 14);
+            color: rgb(5, 28, 48);
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+        }
+        a:hover{
+            background-color: rgb(221, 186, 90);
+            box-shadow: 5px 2.5px rgb(25, 36, 14);
+            color: rgb(10, 53, 90);
+        }
+    </style>
+</head>
+<body>
+    <div class="con">
+        <h1>Transacción hecha correctamente ✨</h1>
+        <div class="ops">
+            <div class="op1">
+                <a href="homer.php"><h1>Regresar al menu</h1></a>
+            </div>
+            <div class="op2">
+               <a href="consulta.php"><h1>Consultar mi dinero</h1></a> 
+            </div>
+        </div>
+    </div>
+</body>
+</html>

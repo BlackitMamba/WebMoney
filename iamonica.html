@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Financiero</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=J82DoVw0"></script>
+    <style>
+ body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #1a1b22, #7c257c, #4444a3);
+            height: 100vh;
+        }
+
+        #chat-container {
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+
+        #chat-box {
+            height: 60vh;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        #input-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #user-input {
+            flex: 1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            color: #fff;
+            background-color: #555;
+            outline: none;
+        }
+
+        #send-button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .user-message,
+        .assistant-message {
+            display: inline-block;
+            max-width: 80%;
+            padding: 8px;
+            border-radius: 10px;
+            margin-bottom: 5px;
+        }
+
+        .user-message {
+            background-color: #007bff;
+            color: #fff;
+            float: right;
+        }
+
+        .assistant-message {
+            background-color: #f0f0f0;
+            color: #000;
+            float: left;
+        }
+        .user-icon, .assistant-icon {
+            margin-right: 5px;
+        }
+          
+.user-icon, .assistant-icon {
+            margin-right: 5px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+
+        .user-icon {
+            background-color: #007bff;
+        }
+
+        .assistant-icon {
+            background-color: #f0f0f0;
+        }
+        .assistant-message {
+            opacity: 0; /* Inicialmente, la opacidad es 0 */
+            animation: fadeIn 1s ease forwards; /* Animación de fadeIn con duración de 1 segundo */
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Al final de la animación, la opacidad es 1 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+        <div id="input-container">
+            <img src="_3e66450d-b3cc-4923-9c80-28636f71d266.jpg" alt="Asistente" class="assistant-icon">
+            <input type="text" id="user-input" placeholder="Escribe tu mensaje...">
+            <button id="send-button">Enviar</button>
+            <button id="back-button"><a href="homer.php">Volver</a></button>
+          
+        </div>
+    </div>
+
+    <script>
+          const chatBox = document.getElementById('chat-box');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+
+        sendButton.addEventListener('click', handleUserInput);
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                handleUserInput();
+            }
+        });
+
+        function handleUserInput() {
+            const userMessage = userInput.value.trim();
+            if (userMessage !== '') {
+                addUserMessage(userMessage);
+                processUserMessage(userMessage);
+                userInput.value = '';
+            }
+        }
+
+        function addUserMessage(message) {
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.classList.add('user-message');
+            userMessageDiv.textContent = `Usuario: ${message}`;
+            chatBox.appendChild(userMessageDiv);
+            chatBox.scrollTop = chatBox.scrollHeight;
+        }
+
+        function addAssistantMessage(message) {
+            setTimeout(() => {
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.classList.add('assistant-message');
+                assistantMessageDiv.textContent = `Asistente: ${message}`;
+                chatBox.appendChild(assistantMessageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+            }, 500); // Retraso de 3 segundos (3000 milisegundos) en la respuesta del asistente
+        }
+
+        function processUserMessage(message) {
+            const lowerCaseMessage = message.toLowerCase();
+
+            // Saludos
+            if (lowerCaseMessage.includes('hola') || lowerCaseMessage.includes('buenos días') || lowerCaseMessage.includes('buenas tardes') || lowerCaseMessage.includes('buenas noches')) {
+                addAssistantMessage('¡Hola! ¿En qué puedo ayudarte con tus finanzas?');
+            }
+            // Temas de finanzas
+            else if (lowerCaseMessage.includes('ahorro') || lowerCaseMessage.includes('invertir') || lowerCaseMessage.includes('presupuesto') || lowerCaseMessage.includes('deudas')) {
+                addAssistantMessage('Claro, puedo proporcionarte información sobre temas de finanzas. ¿En qué específicamente estás interesado?');
+            }
+            // Respuesta por defecto
+            else {
+                addAssistantMessage('Lo siento, no entiendo tu pregunta. Por favor, intenta preguntar de otra manera.');
+            }
+        }
+        function addAssistantMessage(message) {
+            setTimeout(() => {
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.classList.add('assistant-message');
+                assistantMessageDiv.textContent = `Mónica: ${message}`;
+                chatBox.appendChild(assistantMessageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                // Aplicar la clase con la animación después de agregar el mensaje del asistente
+                setTimeout(() => {
+                    assistantMessageDiv.classList.add('fade-in');
+                }, 50); // Retraso para asegurar que se aplique la animación correctamente
+            }, 100); // Retraso de 3 segundos (3000 milisegundos) en la respuesta del asistente
+        }
+        function processUserMessage(message) {
+            const lowerCaseMessage = message.toLowerCase();
+
+            // Respuesta motivadora y de agradecimiento a cualquier pregunta
+            if (lowerCaseMessage.includes('Despidete') || lowerCaseMessage.includes('adios') || lowerCaseMessage.includes('pregunta')) {
+                addAssistantMessage('Oh!... es cierto... Enviemos un mensaje motivador a la audiencia: "¡Hoy es un día increíble! Gracias a todos por estar presentes y compartir con Web Mony, tengan un gran día, muchas gracias."');
+            }
+            // Saludos
+            else if (lowerCaseMessage.includes('hola') || lowerCaseMessage.includes('buenos días') || lowerCaseMessage.includes('buenas tardes') || lowerCaseMessage.includes('buenas noches')) {
+                addAssistantMessage('¡Hola! ¿En qué puedo ayudarte con tus finanzas?');
+            }
+            // Temas de finanzas
+            else if (lowerCaseMessage.includes('ahorro') || lowerCaseMessage.includes('invertir') || lowerCaseMessage.includes('presupuesto') || lowerCaseMessage.includes('deudas')) {
+                addAssistantMessage('Claro, puedo proporcionarte información sobre temas de finanzas. ¿En qué específicamente estás interesado?');
+            }
+            else if (lowerCaseMessage.includes('que es webmoney') || lowerCaseMessage.includes('webmoney') || lowerCaseMessage.includes('WEBMONEY')) {
+                addAssistantMessage('Claro, puedo proporcionarte información sobre Web Mony. Web Mony es una empresa virtual y fisica que se encarga del manejo del dinero de forma digital y no solo eso tiene una visión futurista al poder ganar dinero no solo en minijuegos. ');
+//también cooperando en el proyecto msmo y uniendose a ellos, en su mismo slogan lo dice: "Tu dinero en Web Mony se multiplica cen un solo clic"
+            }
+            else if(lowerCaseMessage.includes('hay mas formas') || lowerCaseMessage.includes('dinero') || lowerCaseMessage.includes('formas')) 
+            addAssistantMessage('también cooperando en el proyecto mismo y uniendose a ellos, en su mismo slogan lo dice: "Tu dinero en Web Mony se multiplica cen un solo clic"');
+            // Respuesta por defecto
+            else if(lowerCaseMessage.includes('creador') || lowerCaseMessage.includes('quienes te crearon') || lowerCaseMessage.includes('quien es tu creador')) 
+            addAssistantMessage('Fui diseñada por mi rey... digo por Yostin');
+            // Respuesta por defecto
+            else {
+                addAssistantMessage('Lo siento, no entiendo tu pregunta. Por favor, intenta preguntar de otra manera.');
+            }
+        }
+        function addAssistantMessage(message) {
+            setTimeout(() => {
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.classList.add('assistant-message');
+                assistantMessageDiv.textContent = `Asistente: ${message}`;
+                chatBox.appendChild(assistantMessageDiv);
+                chatBox.scrollTop = chatBox.scrollHeight;
+
+                // Aplicar la clase con la animación después de agregar el mensaje del asistente
+                setTimeout(() => {
+                    assistantMessageDiv.classList.add('fade-in');
+                }, 100); // Retraso para asegurar que se aplique la animación correctamente
+
+                // Convertir el texto en voz de mujer utilizando el API de síntesis de voz (SpeechSynthesis)
+                speakText(message);
+            }, 400); // Retraso de 3 segundos (3000 milisegundos) en la respuesta del asistente
+        }
+
+    
+    function speakText(text) {
+            // Crear una nueva instancia del objeto SpeechSynthesisUtterance
+            const msg = new SpeechSynthesisUtterance();
+            msg.text = text;
+
+            // Intentar seleccionar una voz de mujer
+            const voices = speechSynthesis.getVoices();
+            const femaleVoice = voices.find(voice => voice.name.includes('female'));
+            msg.voice = femaleVoice || voices[7];
+
+            // Reproducir el mensaje de voz
+            speechSynthesis.speak(msg);
+        }
+       
+
+// Detener la síntesis de voz al completar la lectura
+msg.onend = () => {
+    speechSynthesis.cancel();
+};
+function goBack() {
+            window.history.back();
+        }
+
+        // Asignar la función para redirigir a la página anterior al hacer clic en el botón "Volver"
+        document.getElementById('back-button').addEventListener('click', goBack);
+
+
+    </script>
+</body>
+</html>

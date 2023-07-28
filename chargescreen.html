@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pantalla de Carga</title>
+  <style>
+   body{
+    background: black;
+   }
+    .loader {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+     
+    }
+    
+    .loader p {
+        color: white;
+      font-size: 4em;
+      animation: color 1s infinite linear;
+    }
+    
+    @keyframes color {
+      0% {
+        font-size: 4.5em;
+      }
+      
+      100% {
+        font-size: 4em;
+      }
+    }
+   
+
+    img{
+        filter: hue-rotate(10deg);
+        animation: rotate 1s infinite linear;
+    }
+    
+    @keyframes rotate {
+      0% {
+        transform: rotate(0deg);
+      }
+      
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="loader">
+    <img src="xddddd-removebg-preview.png" alt="">
+    <p>Cargando...</p>
+  </div>
+  
+  <script>
+   
+setTimeout(function() {
+  window.location.href = "men.php";
+}, 600);
+
+  </script>
+</body>
+</html>

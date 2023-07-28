@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebMoney</title>
+    <style>
+        body{
+            background-image: linear-gradient(to right, #62a8ac,#5497a7, #50858b);
+            display: flex;
+            justify-content: center;
+        }
+        .con{
+            margin-top: 20%;
+            background-color: #037171;
+            width: 50%;
+            height: 250px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: rgba(14, 30, 37, 0.616) 0px 2px 4px 0px,rgba(14, 30, 37, 0.753) 0px 2px 16px 0px;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+            border-top: 3px groove #0c3622;
+            border-bottom: 3px groove #0c3622;
+            opacity: .6;
+        }
+        .con:hover{
+            opacity: 1;
+          
+            background-color: rgb(33, 32, 44);
+            width: 52%;
+            height: 250px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 10px 5px 2.5px black;
+            transition: background-color 0.5s ease, box-shadow 0.5s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.5s ease;
+            border-top: 3px groove lightskyblue;
+            border-bottom: 3px groove lightskyblue;
+        }
+       
+        .ops{
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .op1{
+            background-color: rgb(122, 122, 122);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        .con:hover .op1{
+            background-color: rgb(255, 208, 1);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        .con:hover .op2{
+            background-color: rgb(22, 255, 1);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        .con:hover .op1:hover{
+            background-color: rgb(255, 90, 90);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        .con:hover .op2:hover{
+            background-color: rgb(1, 255, 234);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+    .op2{
+            background-color: rgb(121, 121, 121);
+            margin-right: 10px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 5px 2.5px black;
+            transition: all 0.5s ease;
+        }
+        a{
+            text-decoration: none;
+            color: #000;
+            transition: all 0.5s ease;
+        }
+        a:hover{
+            text-decoration: none;
+            color: #818181;
+        }
+        h1{
+            color: white;
+            text-shadow: 5px 2.5px 3.5px rgb(33, 163, 206);
+        }
+    </style>
+</head>
+<body>
+<div class="con">
+        <h1>Retiro hecho correctamente</h1>
+        <div class="ops">
+            <div class="op1">
+                <a href="homer.php"><h2>Regresar al menu</h2></a>
+            </div>
+            <div class="op2">
+               <a href="consulta.php"><h2>Consultar mi dinero</h></a> 
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
